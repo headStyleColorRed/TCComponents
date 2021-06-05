@@ -34,4 +34,24 @@ public struct TCProcessButton: View {
                 .foregroundColor(.white)
         }.disabled(!isEnabled)
     }
+
+    public init(isEnabled: Binding<Bool>, screenWidth: CGFloat, enabledText: String, disabledText: String,
+                enabledColor: Color, disabledcolor: Color, buttonAction: @escaping () -> Void) {
+        self._isEnabled = isEnabled
+        self.screenWidth = screenWidth
+        self.enabledText = enabledText
+        self.disabledText = disabledText
+        self.enabledColor = enabledColor
+        self.disabledcolor = disabledcolor
+        self.buttonAction = buttonAction
+    }
 }
+
+
+
+
+
+
+
+
+

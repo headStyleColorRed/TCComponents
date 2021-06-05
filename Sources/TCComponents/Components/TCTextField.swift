@@ -8,7 +8,7 @@
 import SwiftUI
 
 // MARK: - Inputs
-enum TCTextfieldTypes {
+public enum TCTextfieldTypes {
     case text
     case password
 }
@@ -44,7 +44,7 @@ public struct TCTextField: View {
         .padding(.horizontal, 20)
     }
 
-    init(fieldInput: Binding<String>, inputType: TCTextfieldTypes, placeholder: String, iconImage: Image?) {
+    public init(fieldInput: Binding<String>, inputType: TCTextfieldTypes, placeholder: String, iconImage: Image?) {
         self._fieldInput = fieldInput
         self.inputType = inputType
         self.placeholder = placeholder
