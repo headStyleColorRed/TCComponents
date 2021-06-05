@@ -21,7 +21,7 @@ public struct TCDropdown: View {
     private var scrollHeight: CGFloat = 200
     private var noResults = TCOptions(text: "No results...", isNoResult: true)
 
-    private var filteredArrays: [TCOptions] {
+    private var filteredOptions: [TCOptions] {
         guard !searchWord.isEmpty else { return options }
         let availableOptions = options.filter({ $0.text.contains(searchWord)})
         return availableOptions.isEmpty ? [noResults] : availableOptions
@@ -35,6 +35,7 @@ public struct TCDropdown: View {
     }
 
     public struct TCOptions {
+        var id: String = UUID().uuidString
         var index: Int = 1
         var isSelected: Bool = false
         var text: String
@@ -54,8 +55,8 @@ public struct TCDropdown: View {
 
             ScrollView(.vertical, showsIndicators: true) {
                 VStack {
-                    ForEach(0..<filteredArrays.count, id: \.self) { index in
-                        let option = filteredArrays.elementIn(index)
+                    ForEach(0..<filteredOptions.count, id: \.self) { index in
+                        let option = filteredOptions.elementIn(index)
                         ZStack(alignment: .leading) {
                             optionColor(option)
                                     .cornerRadius(5)
@@ -65,7 +66,7 @@ public struct TCDropdown: View {
                                 .padding([.top, .bottom], 5)
                                 .padding([.leading, .trailing], 5)
                         }.onTapGesture {
-                            selectOptionIn(row: index)
+                            selectOptionWith(id: option?.id ?? "")
                         }
                     }
                     .padding([.leading, .trailing], 15)
@@ -81,7 +82,7 @@ public struct TCDropdown: View {
     }
 
     public init(titleQuestion: String = "Select an option", options: [String], screenWidth: CGFloat,
-         placeholder: String = "Search", backgroundcolor: Color = Color.gray,
+         placeholder: String = "Search", backgroundcolor: Color = Color.white,
          noResultsText: String = "No results...", chosenOption: @escaping (String) -> Void) {
         self.titleQuestion = titleQuestion
         self.placeholder = placeholder
@@ -104,8 +105,9 @@ public struct TCDropdown: View {
         return option?.isSelected == true ? Color.init(hex: "5A93F8") : .black
     }
 
-    private func selectOptionIn(row: Int) {
-        guard options.elementIn(row)?.isNoResult == false else { return }
+    private func selectOptionWith(id: String) {
+        guard let row = options.firstIndex(where: { $0.id == id }),
+              options.elementIn(row)?.isNoResult == false else { return }
 
         for i in options.indices {
             options[i].isSelected = false
