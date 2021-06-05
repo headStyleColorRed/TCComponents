@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+
 struct TCDropdown: View {
     @State private var searchWord = String()
     let titleQuestion: String

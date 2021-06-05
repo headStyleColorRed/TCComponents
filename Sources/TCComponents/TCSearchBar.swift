@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+
 struct TCSearchBar: View {
     @Binding var text: String
     @State private var isEditing = false

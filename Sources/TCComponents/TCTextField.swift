@@ -13,7 +13,7 @@ enum TCTextfieldTypes {
     case password
 }
 
-@available(iOS 13.0, *)
+
 struct TCTextField: View {
     @Binding var fieldInput: String
     let inputType: TCTextfieldTypes
@@ -45,7 +45,7 @@ struct TCTextField: View {
     }
 }
 
-@available(iOS 13.0, *)
+
 fileprivate struct TCTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration

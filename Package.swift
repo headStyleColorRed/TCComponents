@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "TCComponents",
     platforms: [
-        .iOS(.v12), .macOS(.v11)
+        .iOS(.v13), .macOS(.v11)
     ],
     products: [
         .library(
