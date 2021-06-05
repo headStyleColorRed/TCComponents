@@ -59,4 +59,14 @@ public struct TCSearchBar: View {
             }
         }
     }
+
+    public init(text: Binding<String>, backgroundColor: Color, placeholder: String, showCancelText: Bool) {
+        self._text = text
+        self.backgroundColor = backgroundColor
+        self.placeholder = placeholder
+        self.showCancelText = showCancelText
+    }
 }
+
+
+
