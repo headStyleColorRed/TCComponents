@@ -43,6 +43,13 @@ public struct TCTextField: View {
         .cornerRadius(15)
         .padding(.horizontal, 20)
     }
+
+    init(fieldInput: Binding<String>, inputType: TCTextfieldTypes, placeholder: String, iconImage: Image?) {
+        self._fieldInput = fieldInput
+        self.inputType = inputType
+        self.placeholder = placeholder
+        self.iconImage = iconImage
+    }
 }
 
 
