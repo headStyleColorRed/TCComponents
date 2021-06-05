@@ -8,14 +8,14 @@
 import SwiftUI
 
 
-struct TCSearchBar: View {
+public struct TCSearchBar: View {
     @Binding var text: String
     @State private var isEditing = false
     let backgroundColor: Color
     let placeholder: String
     let showCancelText: Bool
 
-    var body: some View {
+    public var body: some View {
         HStack {
             TextField("Search", text: $text)
                 .padding(4)

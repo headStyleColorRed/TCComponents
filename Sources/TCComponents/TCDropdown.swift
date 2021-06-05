@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct TCDropdown: View {
+public struct TCDropdown: View {
     @State private var searchWord = String()
     let titleQuestion: String
     @State var options: [TCOptions]
@@ -34,14 +34,14 @@ struct TCDropdown: View {
         return "\(titleQuestion) \(selectedAnswer)"
     }
 
-    struct TCOptions {
+    public struct TCOptions {
         var index: Int = 1
         var isSelected: Bool = false
         var text: String
         var isNoResult: Bool = false
     }
 
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading) {
             Text(title)
                 .lineLimit(1)

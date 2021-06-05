@@ -14,13 +14,13 @@ enum TCTextfieldTypes {
 }
 
 
-struct TCTextField: View {
+public struct TCTextField: View {
     @Binding var fieldInput: String
     let inputType: TCTextfieldTypes
     let placeholder: String
     let iconImage: Image?
 
-    var body: some View {
+    public var body: some View {
         VStack {
             HStack {
                 if let iconImage = iconImage {

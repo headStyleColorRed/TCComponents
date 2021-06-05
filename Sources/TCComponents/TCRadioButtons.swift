@@ -8,17 +8,17 @@
 import SwiftUI
 
 
-struct TCRadioButtons: View {
+public struct TCRadioButtons: View {
     @State var selectedId = String()
     let items: [String]
     let buttonColor: Color
     let screenWidth: CGFloat // UIScreen.main.bounds.width
     let callback: (String) -> Void
 
-    var body: some View {
+    public var body: some View {
         VStack {
             ForEach(0..<items.count) { index in
-                RadioButton(self.items[index],
+                TCRadioButton(self.items[index],
                             callback: radioGroupCallback,
                             selectedID: selectedId, color: buttonColor)
             }
@@ -33,7 +33,7 @@ struct TCRadioButtons: View {
 }
 
 
-fileprivate struct RadioButton: View {
+fileprivate struct TCRadioButton: View {
     let id: String
     let callback: (String) -> Void
     let selectedID: String

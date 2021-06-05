@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct TCProcessButton: View {
+public struct TCProcessButton: View {
     @Binding var isEnabled: Bool
     let screenWidth: CGFloat // UIScreen.main.bounds.width
     let enabledText: String
@@ -24,7 +24,7 @@ struct TCProcessButton: View {
         return isEnabled ? enabledColor : disabledcolor
     }
 
-    var body: some View {
+    public var body: some View {
         Button(action: {
             buttonAction()
         }) {
