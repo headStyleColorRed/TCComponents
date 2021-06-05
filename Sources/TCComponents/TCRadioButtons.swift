@@ -30,6 +30,16 @@ public struct TCRadioButtons: View {
         selectedId = id
         callback(id)
     }
+
+    public init(items: [String],
+                buttonColor: Color,
+                screenWidth: CGFloat,
+                callback: @escaping (String) -> Void) {
+        self.items = items
+        self.buttonColor = buttonColor
+        self.screenWidth = screenWidth
+        self.callback = callback
+    }
 }
 
 
