@@ -80,7 +80,7 @@ public struct TCDropdown: View {
         .cornerRadius(10)
     }
 
-    init(titleQuestion: String = "Select an option", options: [String], screenWidth: CGFloat,
+    public init(titleQuestion: String = "Select an option", options: [String], screenWidth: CGFloat,
          placeholder: String = "Search", backgroundcolor: Color = Color.gray,
          noResultsText: String = "No results...", chosenOption: @escaping (String) -> Void) {
         self.titleQuestion = titleQuestion
