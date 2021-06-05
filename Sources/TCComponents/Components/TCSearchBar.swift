@@ -17,7 +17,7 @@ public struct TCSearchBar: View {
 
     public var body: some View {
         HStack {
-            TextField("Search", text: $text)
+            TextField(placeholder, text: $text)
                 .padding(4)
                 .padding(.horizontal, 25)
                 .background(backgroundColor)
@@ -60,7 +60,8 @@ public struct TCSearchBar: View {
         }
     }
 
-    public init(text: Binding<String>, backgroundColor: Color, placeholder: String, showCancelText: Bool) {
+    public init(text: Binding<String>, backgroundColor: Color,
+                placeholder: String = "Search", showCancelText: Bool = true) {
         self._text = text
         self.backgroundColor = backgroundColor
         self.placeholder = placeholder

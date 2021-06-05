@@ -35,12 +35,12 @@ public struct TCProcessButton: View {
         }.disabled(!isEnabled)
     }
 
-    public init(isEnabled: Binding<Bool>, screenWidth: CGFloat, enabledText: String, disabledText: String,
+    public init(isEnabled: Binding<Bool>, screenWidth: CGFloat, enabledText: String, disabledText: String? = nil,
                 enabledColor: Color, disabledcolor: Color, buttonAction: @escaping () -> Void) {
         self._isEnabled = isEnabled
         self.screenWidth = screenWidth
         self.enabledText = enabledText
-        self.disabledText = disabledText
+        self.disabledText = disabledText == nil ? enabledText : disabledText!
         self.enabledColor = enabledColor
         self.disabledcolor = disabledcolor
         self.buttonAction = buttonAction
