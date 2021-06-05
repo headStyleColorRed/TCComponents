@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(macOS 11.0, *)
+@available(iOS 13.0, *)
 struct TCRadioButtons: View {
     @State var selectedId = String()
     let items: [String]
@@ -32,7 +32,7 @@ struct TCRadioButtons: View {
     }
 }
 
-@available(macOS 11.0, *)
+@available(iOS 13.0, *)
 fileprivate struct RadioButton: View {
     let id: String
     let callback: (String) -> Void

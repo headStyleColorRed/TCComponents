@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(macOS 10.15, *)
+@available(iOS 13.0, *)
 struct TCProcessButton: View {
     @Binding var isEnabled: Bool
     let screenWidth: CGFloat // UIScreen.main.bounds.width
