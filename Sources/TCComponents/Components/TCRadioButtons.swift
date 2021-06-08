@@ -35,7 +35,7 @@ public struct TCRadioButtons: View {
     public init(items: [String],
                 buttonColor: Color,
                 screenWidth: CGFloat,
-                radioFont: Font,
+                radioFont: Font?,
                 callback: @escaping (String) -> Void) {
         self.items = items
         self.buttonColor = buttonColor
