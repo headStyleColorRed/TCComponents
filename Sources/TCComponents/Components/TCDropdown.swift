@@ -71,7 +71,6 @@ public struct TCDropdown: View {
                     }
                     .padding([.leading, .trailing], 15)
                     .padding(.bottom, 10)
-
                 }
             }
             .frame(height: scrollHeight)
