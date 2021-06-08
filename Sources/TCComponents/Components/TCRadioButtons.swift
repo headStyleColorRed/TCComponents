@@ -12,6 +12,7 @@ public struct TCRadioButtons: View {
     @State var selectedId = String()
     let items: [String]
     let buttonColor: Color
+    let radioFont: Font?
     let screenWidth: CGFloat // UIScreen.main.bounds.width
     let callback: (String) -> Void
 
@@ -20,7 +21,7 @@ public struct TCRadioButtons: View {
             ForEach(0..<items.count) { index in
                 TCRadioButton(self.items[index],
                             callback: radioGroupCallback,
-                            selectedID: selectedId, color: buttonColor)
+                            selectedID: selectedId, color: buttonColor, radioFont: radioFont)
             }
         }
         .frame(width: screenWidth / 1.4, alignment: .center)
@@ -34,10 +35,12 @@ public struct TCRadioButtons: View {
     public init(items: [String],
                 buttonColor: Color,
                 screenWidth: CGFloat,
+                radioFont: Font,
                 callback: @escaping (String) -> Void) {
         self.items = items
         self.buttonColor = buttonColor
         self.screenWidth = screenWidth
+        self.radioFont = radioFont
         self.callback = callback
     }
 }
@@ -50,16 +53,18 @@ fileprivate struct TCRadioButton: View {
     let size: CGFloat
     let color: Color
     let textSize: CGFloat
+    let radioFont: Font?
 
     init( _ id: String, callback: @escaping (String) -> Void,
           selectedID: String, size: CGFloat = 20,
-          color: Color, textSize: CGFloat = 14) {
+          color: Color, textSize: CGFloat = 14, radioFont: Font?) {
         self.id = id
         self.size = size
         self.color = color
         self.textSize = textSize
         self.selectedID = selectedID
         self.callback = callback
+        self.radioFont = radioFont
     }
 
     var body: some View {
@@ -68,7 +73,7 @@ fileprivate struct TCRadioButton: View {
         }) {
             HStack(alignment: .center, spacing: 10) {
                 Text(id)
-                    .font(Font.system(size: textSize))
+                    .font(radioFont == nil ? Font.system(size: textSize): radioFont)
                     .foregroundColor(.black)
                 Spacer()
                 Image(systemName: selectedID == id ? "largecircle.fill.circle" : "circle")
