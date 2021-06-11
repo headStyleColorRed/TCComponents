@@ -20,10 +20,7 @@ let package = Package(
     targets: [
         .target(
             name: "TCComponents",
-            dependencies: []),
-        .testTarget(
-            name: "TCComponentsTests",
-            dependencies: ["TCComponents"]),
+            dependencies: [])
     ]
     
 )
